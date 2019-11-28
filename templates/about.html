@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>About</h2>
+
+
+    
+
+
+
+    
+
+
+    <h2>{{page_title}}</h2>
     <p>
     The formation of the group grew out of a meeting 
     Gandalf had with Thorin in Bree which kindled 
@@ -20,183 +29,39 @@
        business, welcomed a fourteenth to fill into 
        their party.
     </p>
+
+    {% for member in company %}
     <div class ="row featurette">
+    {% if loop.index % 2 != 0 %}
+
         <div class = "col-md-7">
-            <h3>Thorin Oakenshield</h3>
+            <h3><a href="/about/{{member.url}}">{{ loop.index }}. {{ member.name }}</a></h3>
             <p>
-            In the year TA 2746, Thorin II was born to Dwarven
-             prince Thráin II in the mountain city of The Lonely
-              Mountain. Early in his youth, he and the other
-               Dwarves of the Lonely Mountain were forced to 
-               flee by the dragon Smaug in TA 2770. While in 
-               exile, he quickly grew to become a capable warrior. 
-               This was demonstrated when he participated in the 
-               Battle of Azanulbizar in TA 2799. He marched with 
-               one of the Dwarven armies beneath the East-gate of 
-               Moria. At some point in the fighting, his shield 
-               broke, and using an oaken tree branch found on the
-                floor as a shield, he gained the epithet 
-                "Oakenshield," which would remain with him 
-                even in death.
+            {{ member.description }}
             </p>
         </div>
         <div class="col-md-5">
-            <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Thorin%2C_from_the_Hobbit.jpg">
+            <img class="featurette-image img-responsive" src="{{ member.image_source }}">
         </div>
+        {% else %}
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" src="{{ member.image_source }}">
+        </div>
+        <div class = "col-md-7">
+            <h3><a href="/about/{{member.url}}">{{ loop.index }}. {{ member.name }}</a></h3>
+            <p>
+            {{ member.description }}
+            </p>
+        </div>
+        {% endif %}
     </div>
-    <div class ="row featurette">
-        <div class="col-md-5">
-            <img src="https://vignette.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg/revision/latest/scale-to-width-down/350?cb=20110714202952">
-        </div>
-        <div class = "col-md-7">
-            <h3>Fíli and Kíli</h3>
-            <p>
-            Fíli and Kíli were nephews of Thorin, who was 
-            the elder brother of their mother Dís. They 
-            were also nephews of Frerin, grandsons of 
-            Thráin II, and great-grandsons of Thror. Fíli's 
-            most distinguishing feature was his long nose, 
-            the longest of any of the Dwarves on the Quest 
-            of Erebor.
-            </p>
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class = "col-md-7">
-            <h3>Oin</h3>
-            <p>
-            Óin was the older brother of Glóin, cousin 
-            of Dwalin and Balin, and uncle of Gimli. 
-            He usually wore a brown-hooded cloak when 
-            travelling. Óin fought in the Battle of 
-            Azanulbizar along with Thorin Oakenshield, 
-            and in TA 2941 joined with Thorin and Company 
-            on the quest to reclaim the Lonely Mountain 
-            wearing a brown hood.[2] Óin was one of the 
-            Dwarves who bet that Bilbo would come along 
-            with them to reclaim the Lonely Mountain. Óin 
-            and his brother Glóin were usually in charge of 
-            preparing the fire for the Company. He fought in 
-            and survived the Battle of the Five Armies, and 
-            later settled in the Lonely Mountain along with 
-            many other dwarves of The Company of Thorin.           
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="http://static3.wikia.nocookie.net/__cb20120909101942/lotr/images/2/20/Oin_2.jpg">
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class="col-md-5">
-            <img src="https://vignette.wikia.nocookie.net/lotr/images/f/fc/Gloin_2.jpg/revision/latest/scale-to-width-down/350?cb=20120908171710">
-        </div>
-        <div class = "col-md-7">
-            <h3>Gloin</h3>
-            <p>
-            In TA 2799, Glóin was known to have fought in the 
-            Battle of Azanulbizar, the last battle of the War 
-            of the Dwarves and Orcs. In TA 2941, Glóin and his 
-            brother Óin, along with his cousins Dwalin and Balin, 
-            were among the Dwarves accompanying Thorin and 
-            Company during their quest to the Lonely Mountain 
-            to recapture The Kingdom of Erebor from the Dragon 
-            Smaug. He was noted for his skills with a tinderbox, 
-            and, along with his brother Óin, was usually the one 
-            told to get a fire started whenever the Dwarves made 
-            camp. Gloin also fought in the Battle of the Five 
-            Armies.[1] After the battle, he settled back into 
-            the Lonely Mountain.
-            </p>
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-           
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-            </p>
-        </div>
-    </div><div class ="row featurette">
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-           
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-            </p>
-        </div>
-    </div><div class ="row featurette">
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-           
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-            </p>
-        </div>
-    </div><div class ="row featurette">
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-           
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-    </div>
-    <div class ="row featurette">
-        <div class="col-md-5">
-            <img src="image here">
-        </div>
-        <div class = "col-md-7">
-            <h3>Name</h3>
-            <p>
-            text in here
-            </p>
-        </div>
-    </div>
+    {% if loop.index != 13 %}
+
+    <hr class="featurette-divider">
+
+    {%endif %}
+
+
+   {% endfor %}
     
 {% endblock %}
